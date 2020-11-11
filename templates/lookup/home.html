@@ -1,0 +1,21 @@
+{% extends 'lookup/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container">
+    {% if api %}
+        {% if api == 'Error...' %}
+            There was an error, please try again...
+        {% else %}
+<div class="jumbotron {{ category_color }}">
+  <h1 class="display-4">{{ api.0.Category.Name }}</h1>
+  <p class="lead">{{ api.0.ReportingArea }}
+      Air Quality: {{ api.0.AQI }}</p>
+    <br>
+     <hr>
+        <p>{{ category_description }}</p>
+</div>
+        {% endif %}
+    {% endif %}
+
+</div>
+{% endblock %}
